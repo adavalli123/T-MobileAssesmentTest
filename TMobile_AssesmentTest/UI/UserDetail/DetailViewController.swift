@@ -67,7 +67,9 @@ class DetailViewController: UIViewController {
         self.locationLabel?.text = Constants.location + (location ?? "--")
         
         if let dateCreated = joinDate {
-            self.joinDateLabel?.text = Constants.dateCreation + String(describing: dateCreated)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MMM dd, yyyy"
+            self.joinDateLabel?.text = Constants.dateCreation + String(describing: dateFormatter.string(from: dateCreated))
         } else {
             self.joinDateLabel?.text = Constants.dateCreation + "--"
         }
